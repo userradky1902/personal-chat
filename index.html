@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Outer container for the entire chat application, mimicking a phone screen -->
+    <div class="phone-frame">
+        <!-- Main chat screen content -->
+        <div class="chat-screen-content">
+            <!-- Top header bar -->
+            <div class="header-bar">
+                <button class="icon-btn back-arrow">&#8592;</button>
+                <div class="profile-display">
+                    <img src="https://via.placeholder.com/40" alt="Profile Picture" class="profile-pic">
+                    <div class="profile-details">
+                        <span class="profile-name">Jonathan Patterson</span>
+                        <span class="profile-status">Online</span>
+                    </div>
+                </div>
+                <button class="icon-btn call-icon">&#9742;</button>
+                <button class="icon-btn menu-icon">&#8942;</button>
+            </div>
+
+            <!-- Message display area -->
+            <div class="message-display-area">
+                <!-- Incoming message bubble -->
+                <div class="message-bubble incoming">
+                    <p>Grad I ran into you today to cooperate</p>
+                    <span class="message-time">8:30 &#10003;</span>
+                </div>
+
+                <!-- Outgoing message bubble -->
+                <div class="message-bubble outgoing">
+                    <p>I'm happy too, I hope we work well together</p>
+                    <span class="message-time">8:38</span>
+                </div>
+            </div>
+
+            <!-- Input bar at the bottom -->
+            <div class="input-bar">
+                <button class="icon-btn emoji-icon">&#128512;</button>
+                <input type="text" placeholder="@reallygreatsite" class="text-input">
+                <button class="icon-btn mic-icon">&#127908;</button>
+                <button class="icon-btn camera-icon">&#128247;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTP Authentication Screen (kept for functionality, but visually hidden/styled differently) -->
+    <div id="authScreen" class="auth-screen hidden">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h1>Welcome to Your Personal chat</h1>
+                <p>Enter your details to get started</p>
+            </div>
+            
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <button id="generateOtpBtn" class="auth-btn">Generate OTP</button>
+            </div>
+            
+            <!-- OTP Verification Form -->
+            <div id="otpForm" class="auth-form hidden">
+                <div class="otp-info">
+                    <p>OTP sent to your email</p>
+                </div>
+                <div class="input-group">
+                    <label for="otpInput">Enter OTP</label>
+                    <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6" required>
+                </div>
+                <button id="verifyOtpBtn" class="auth-btn">Verify OTP</button>
+                <button id="backToLoginBtn" class="auth-btn-secondary">Back to Login</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function() {
+          emailjs.init("kNOuwt_D-c7hX6dw9"); // 🔑 from EmailJS dashboard
+      })();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+

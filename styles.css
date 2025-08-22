@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #C4B59A; /* Beige background matching the screenshot */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Phone frame container */
+.phone-frame {
+    width: 350px;
+    height: 600px;
+    background: #E8DCC6; /* Light beige for the phone frame */
+    border: 3px solid #8B7355; /* Brown border */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Main chat screen content */
+.chat-screen-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #E8DCC6;
+}
+
+/* Top header bar */
+.header-bar {
+    background: #D4C4A8; /* Slightly darker beige for header */
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #B8A082;
+    min-height: 60px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #5D4E37;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(93, 78, 55, 0.1);
+}
+
+.back-arrow {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.profile-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #8B7355;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #5D4E37;
+    line-height: 1.2;
+}
+
+.profile-status {
+    font-size: 12px;
+    color: #8B7355;
+    line-height: 1.2;
+}
+
+.call-icon, .menu-icon {
+    margin-left: auto;
+}
+
+/* Message display area */
+.message-display-area {
+    flex: 1;
+    padding: 20px 16px;
+    background: #E8DCC6;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Message bubbles */
+.message-bubble {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    position: relative;
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+.message-bubble.incoming {
+    background: #C4B59A; /* Darker beige for incoming messages */
+    color: #5D4E37;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #B8A082;
+}
+
+.message-bubble.outgoing {
+    background: #A0926B; /* Even darker beige for outgoing messages */
+    color: #F5F1E8;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    border: 1px solid #8B7355;
+}
+
+.message-bubble p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.message-time {
+    font-size: 11px;
+    opacity: 0.7;
+    margin-top: 4px;
+    display: block;
+}
+
+.message-bubble.incoming .message-time {
+    color: #5D4E37;
+}
+
+.message-bubble.outgoing .message-time {
+    color: #F5F1E8;
+}
+
+/* Input bar at the bottom */
+.input-bar {
+    background: #D4C4A8;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-top: 1px solid #B8A082;
+    min-height: 60px;
+}
+
+.text-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #B8A082;
+    border-radius: 20px;
+    background: #F5F1E8;
+    font-size: 14px;
+    color: #5D4E37;
+    outline: none;
+}
+
+.text-input::placeholder {
+    color: #8B7355;
+    opacity: 0.7;
+}
+
+.text-input:focus {
+    border-color: #8B7355;
+    box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.2);
+}
+
+.emoji-icon, .mic-icon, .camera-icon {
+    font-size: 16px;
+}
+
+/* Authentication Screen Styles (kept for functionality) */
+.auth-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #C4B59A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.auth-container {
+    background: #E8DCC6;
+    border: 3px solid #8B7355;
+    border-radius: 10px;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 5px 5px 0px #8B7355;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h1 {
+    color: #5D4E37;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.auth-header p {
+    color: #5D4E37;
+    font-size: 14px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    color: #5D4E37;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.input-group input {
+    padding: 12px;
+    border: 2px solid #8B7355;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    background: #F5F1E8;
+}
+
+.input-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.2);
+}
+
+.auth-btn {
+    padding: 12px 20px;
+    background: #8B7355;
+    color: #F5F1E8;
+    border: 2px solid #5D4E37;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.auth-btn:hover {
+    background: #6B5B47;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0px #5D4E37;
+}
+
+.auth-btn-secondary {
+    padding: 12px 20px;
+    background: transparent;
+    color: #5D4E37;
+    border: 2px solid #5D4E37;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.auth-btn-secondary:hover {
+    background: #5D4E37;
+    color: #F5F1E8;
+}
+
+.otp-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.otp-info p {
+    color: #5D4E37;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .phone-frame {
+        width: 95%;
+        height: 90vh;
+        border-radius: 15px;
+    }
+    
+    .auth-container {
+        width: 90%;
+        margin: 0 20px;
+    }
+}
+
